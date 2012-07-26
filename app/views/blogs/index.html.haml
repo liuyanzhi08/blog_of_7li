@@ -13,11 +13,9 @@
       %td= blog.title
       %td= blog.content
       %td= link_to 'Show', blog
-      = if can? :manage?, blog
-        %td= link_to 'Edit', edit_blog_path(blog)
-        %td= link_to 'Destroy', blog, :method => :delete
+      %td= link_to 'Edit', edit_blog_path(blog)
+      %td= link_to 'Destroy', blog, :method => :delete
 
 %br
 
-= if can? :manage?, @blog
-  = link_to 'New Blog', new_blog_path
+= link_to 'New Blog', new_blog_path
