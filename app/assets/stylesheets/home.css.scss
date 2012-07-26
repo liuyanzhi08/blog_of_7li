@@ -2,22 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #welcome{
-  background-color: #3e3d39;
+  background-color: #eeeeee;
 }
 
 #logo{
   width: 600px;
   height: 300px;
-  color: #FFF;
   font-size: 330px;
   margin: 200px auto 0 auto;
 }
 
 #logo a{
-  color: #FFF;
+  color: #3e3d39;
   text-decoration: none;
 }
 
 #logo a:hover{
-  background-color: #3e3d39;
+  background-color: #eeeeee;
 }

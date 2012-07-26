@@ -1,6 +1,8 @@
 class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
+  load_and_authorize_resource #cancan use to authorize
+
   def index
     @blogs = Blog.all
 
@@ -43,6 +45,7 @@ class BlogsController < ApplicationController
   # POST /blogs.json
   def create
     @blog = Blog.new(params[:blog])
+    # add tags
     tags = Blog.tag_counts
     tags.each do |tag|
       name = tag.name

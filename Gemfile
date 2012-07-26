@@ -18,3 +18,5 @@ gem "bootstrap-sass", ">= 2.0.4.0"
 gem "devise", "~> 2.1.2"
 gem "kaminari", "~> 0.13.0"
 gem 'acts-as-taggable-on', '~> 2.3.1'
+gem "devise", "~> 2.1.2"
+gem "cancan", "~> 1.6.8"
