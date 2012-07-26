@@ -1,3 +1,9 @@
 BlogOf7li::Application.routes.draw do
-  root :to => "home#index"
+  resources :blogs do
+    member do
+      get :addTag
+    end
+  end
+
+  root :to => "home#welcome"
 end
