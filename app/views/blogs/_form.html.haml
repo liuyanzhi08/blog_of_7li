@@ -14,7 +14,7 @@
     = f.kindeditor :content, :width => 800, :height => 300 #use kindeditor
   #tag
     = render :partial => 'tag', :collection =>  @tags
-  <hr />New tag
+  %hr New tag
   = text_field_tag "tag_to_add"
   .actions
     = f.submit 'Save'

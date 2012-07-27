@@ -1,6 +1,7 @@
 class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
+
   load_and_authorize_resource #cancan use to authorize
   skip_authorize_resource :only => :tag
 
@@ -28,7 +29,7 @@ class BlogsController < ApplicationController
   # GET /blogs/new.json
   def new
     @blog = Blog.new
-    @tags= Blog.tag_counts
+    @tags = Blog.tag_counts
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,6 +41,7 @@ class BlogsController < ApplicationController
   # GET /blogs/1/edit
   def edit
     @blog = Blog.find(params[:id])
+    @tags = @blog.tags
   end
 
   # POST /blogs
@@ -47,14 +49,7 @@ class BlogsController < ApplicationController
   def create
     @blog = Blog.new(params[:blog])
     # add tags
-    tags = Blog.tag_counts
-    tags.each do |tag|
-      name = tag.name
-      @blog.tag_list.add(params[name])
-    end
-    params[:tag_to_add].split.each do |tag|
-      @blog.tag_list.add(tag)
-    end
+    commit_tag
 
     respond_to do |format|
       if @blog.save
@@ -71,6 +66,8 @@ class BlogsController < ApplicationController
   # PUT /blogs/1.json
   def update
     @blog = Blog.find(params[:id])
+    #update tags
+    commit_tag
 
     respond_to do |format|
       if @blog.update_attributes(params[:blog])
@@ -99,5 +96,21 @@ class BlogsController < ApplicationController
   def tag
     @blogs = Blog.tagged_with(params[:tag]).order("created_at DESC")
     @tag_name = params[:tag]
+  end
+
+private
+  def commit_tag
+    all_tags = Blog.tag_counts
+    blog_tags = []
+
+    all_tags.each do |tag|
+      name = tag.name
+      blog_tags << params[name]
+    end
+
+    params[:tag_to_add].split.each do |tag|
+      blog_tags << tag
+    end
+    @blog.tag_list = blog_tags
   end
 end

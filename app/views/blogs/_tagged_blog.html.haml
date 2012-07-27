@@ -10,6 +10,6 @@
     %br
     - if can? :manage, :all
       %td= link_to 'Edit', edit_blog_path(tagged_blog)
-      %td= link_to 'Destroy', tagged_blog, :method => :delete
+      %td= link_to 'Destroy', tagged_blog, :method => :delete, :confirm => "Remove?"
 
 

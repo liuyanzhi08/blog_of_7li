@@ -1,2 +1,5 @@
-= check_box_tag "#{tag.name}", "#{tag.name}"
+- if @blog.new_record?
+  = check_box_tag "#{tag.name}", "#{tag.name}"
+- else
+  = check_box_tag "#{tag.name}", "#{tag.name}", true
 = tag.name
