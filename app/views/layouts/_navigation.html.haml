@@ -9,6 +9,7 @@
       = link_to "Log in", new_user_session_url
       = link_to "Log out", destroy_user_session_url, :method => :delete
 
-%ul.nav.nav-pills
-  %li
-    = link_to "Write", new_blog_path, :class => "nav nav-tabs nav-stacked"
+- if can? :manage, :all
+  %ul.nav.nav-pills
+    %li
+      = link_to "Write", new_blog_path, :class => "nav nav-tabs nav-stacked"
