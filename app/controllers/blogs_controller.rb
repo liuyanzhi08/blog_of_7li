@@ -2,6 +2,7 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   load_and_authorize_resource #cancan use to authorize
+  skip_authorize_resource :only => :tag
 
   def index
     @blogs = Blog.all

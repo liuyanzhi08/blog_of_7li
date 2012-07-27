@@ -4,7 +4,7 @@ BlogOf7li::Application.routes.draw do
   resources :blogs do
   end
 
-  match "/blogs/tag/:tag" => "blogs#tag", :as => "tagged_blogs"
+  match "/blogs/tag/:tag" => "blogs#tag", :as => "tagged_blogs", :via => :get
 
   root :to => "home#welcome"
 end

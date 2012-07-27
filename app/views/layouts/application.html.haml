@@ -25,7 +25,8 @@
                 - Blog.tag_counts.each do |tag|
                   %tr
                     %td
-                      = link_to tag.name, tagged_blogs_url(tag.name)
+                      = link_to_unless_current tag.name,
+                        tagged_blogs_url(tag.name)
                     %td
                       = Blog.tagged_with(tag.name).size
 
