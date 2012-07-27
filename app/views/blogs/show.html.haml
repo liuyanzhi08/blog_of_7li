@@ -1,13 +1,12 @@
 %p#notice= notice
 
+- if can? :manage, :all
+  = link_to 'Back', blogs_path
+  \|
+= link_to 'Edit', edit_blog_path(@blog)
 %p
   %b Title:
   = @blog.title
 %p
-  %b Content:
-  = @blog.content
+  = raw(@blog.content)
 
-- if can? :manage, :all
-  = link_to 'Edit', edit_blog_path(@blog)
-  \|
-= link_to 'Back', blogs_path

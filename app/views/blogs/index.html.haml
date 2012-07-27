@@ -3,7 +3,6 @@
 %table
   %tr
     %th Title
-    %th Content
     %th
     %th
     %th
@@ -11,7 +10,6 @@
   - @blogs.each do |blog|
     %tr
       %td= blog.title
-      %td= blog.content
       %td= link_to 'Show', blog
       - if can? :manage, :all
         %td= link_to 'Edit', edit_blog_path(blog)

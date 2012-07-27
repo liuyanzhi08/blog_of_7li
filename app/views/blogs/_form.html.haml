@@ -11,17 +11,11 @@
     = f.text_field :title
   .field
     = f.label :content
-    = f.text_area :content
+    = f.kindeditor :content, :width => 800, :height => 300 #use kindeditor
   #tag
     = render :partial => 'tag', :collection =>  @tags
   <hr />New tag
   = text_field_tag "tag_to_add"
-  = link_to "Add", "#", :id => "add_tag"
   .actions
     = f.submit 'Save'
-
-:javascript
-  $("#add_tag").click(function(){
-    $("#tag").append('<input type="checkbox" name="'+$("#tag_to_add").val()+'"checked="checked">' + $("#tag_to_add").val());
-  })
 

@@ -50,7 +50,9 @@ class BlogsController < ApplicationController
     tags.each do |tag|
       name = tag.name
       @blog.tag_list.add(params[name])
-      @blog.tag_list.add(params[:tag_to_add])
+    end
+    params[:tag_to_add].split.each do |tag|
+      @blog.tag_list.add(tag)
     end
 
     respond_to do |format|
@@ -92,10 +94,8 @@ class BlogsController < ApplicationController
     end
   end
 
-  def addTag
-    blog = Blog.find(params[:id])
-    @tag_to_add = params[:tag_to_add]
-    blog.tag_list << @tag_to_add
-    render :index
+  #show blogs in tags
+  def tag
+    @blogs = Blog.tagged_with(params[:tag])
   end
 end

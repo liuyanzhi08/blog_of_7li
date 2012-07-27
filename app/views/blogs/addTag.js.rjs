@@ -1,1 +1,0 @@
-page['tag'].insert_html('<%= @tag_to_add %><input type="checkbox", name="<%= @tag_to_add %>"/>')
