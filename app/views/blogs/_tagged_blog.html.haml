@@ -8,3 +8,8 @@
     |
     = tagged_blog.created_at.year
     %br
+    - if can? :manage, :all
+      %td= link_to 'Edit', edit_blog_path(tagged_blog)
+      %td= link_to 'Destroy', tagged_blog, :method => :delete
+
+

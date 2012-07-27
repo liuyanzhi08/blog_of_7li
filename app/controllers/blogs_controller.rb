@@ -98,5 +98,6 @@ class BlogsController < ApplicationController
   #show blogs in tags
   def tag
     @blogs = Blog.tagged_with(params[:tag]).order("created_at DESC")
+    @tag_name = params[:tag]
   end
 end
