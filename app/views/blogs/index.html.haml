@@ -3,10 +3,19 @@
     %th Recent posts
     %th
     %th
+    %th
 
   - @blogs.each do |blog|
     %tr
-      %td= link_to blog.title, blog_url(blog)
+      %td
+        = link_to blog.title, blog_url(blog)
+      %td
+        = blog.created_at.mon
+        \,
+        = blog.created_at.day
+        |
+        = blog.created_at.year
+        %br
       - if can? :manage, :all
         %td= link_to 'Edit', edit_blog_path(blog)
         %td= link_to 'Destroy', blog, :method => :delete

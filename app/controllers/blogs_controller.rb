@@ -5,7 +5,7 @@ class BlogsController < ApplicationController
   skip_authorize_resource :only => :tag
 
   def index
-    @blogs = Blog.all
+    @blogs = Blog.find(:all, :order => "created_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -97,6 +97,6 @@ class BlogsController < ApplicationController
 
   #show blogs in tags
   def tag
-    @blogs = Blog.tagged_with(params[:tag])
+    @blogs = Blog.tagged_with(params[:tag]).order("created_at DESC")
   end
 end
