@@ -1,6 +1,6 @@
 Blog Of 7li
 ========================
-<p>The source code of my personal blog</p>(http://svli.herokuapp.com/)
+<p>The source code of my personal blog(http://svli.herokuapp.com)</p>
 ________________________
 
 License
