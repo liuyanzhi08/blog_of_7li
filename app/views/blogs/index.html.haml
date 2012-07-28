@@ -1,4 +1,4 @@
-%table.table.table-bordered
+%table.table.table-striped
   %h3 Recent posts
   - @blogs.each do |blog|
     %tr
@@ -12,10 +12,14 @@
         = blog.created_at.year
         %br
       - if can? :manage, :all
-        %td= link_to 'Edit', edit_blog_path(blog)
-        %td= link_to 'Destroy', blog, :method => :delete, :confirm => "Remove?"
+        %td= link_to 'Edit', edit_blog_path(blog),
+          :class => "btn btn-mini"
+        %td= link_to 'Destroy', blog, :method => :delete,
+          :confirm => "Remove?",
+          :class => "btn btn-mini btn-danger"
 
 %br
 
 - if can? :manage, :all
-  = link_to 'New Blog', new_blog_path
+  = link_to 'New Blog', new_blog_path,
+    :class => "btn btn-info"

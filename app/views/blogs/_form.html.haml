@@ -7,15 +7,17 @@
           %li= msg
 
   .field
-    = f.label :title
     = f.text_field :title
+    %i.icon-pencil
+    Title
   .field
-    = f.label :content
     = f.kindeditor :content, :width => 800, :height => 300 #use kindeditor
   #tag
     = render :partial => 'tag', :collection =>  @tags
-  %hr New tag
+  %br
   = text_field_tag "tag_to_add"
+  %i.icon-tag
+  new tag
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', :class => "btn btn-info"
 

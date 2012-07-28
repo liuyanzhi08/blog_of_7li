@@ -21,14 +21,12 @@
         .content
           .row-fluid
             .span2
-              %table.table.table-bordered
-                - Blog.tag_counts.each do |tag|
-                  %tr
-                    %td
-                      = link_to_unless_current tag.name,
-                        tagged_blogs_url(tag.name)
-                    %td
-                      = Blog.tagged_with(tag.name).size
+              - Blog.tag_counts.each do |tag|
+                %tr
+                  %td
+                    = link_to_unless_current tag.name+" "+Blog.tagged_with(tag.name).size.to_s,
+                      tagged_blogs_url(tag.name),
+                      :class => "btn btn-mini"
 
             .span10
               = render 'layouts/messages'
