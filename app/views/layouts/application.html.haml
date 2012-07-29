@@ -20,16 +20,15 @@
       .container-fluid
         .content
           .row-fluid
-            .span2
+            .tag-wapper
               - Blog.tag_counts.each do |tag|
                 %tr
                   %td
                     = link_to_unless_current tag.name+" "+Blog.tagged_with(tag.name).size.to_s,
                       tagged_blogs_url(tag.name),
                       :class => "btn btn-mini"
-
-            .span10
-              = render 'layouts/messages'
-              = yield
-          %footer
+          .row-fluid
+            = render 'layouts/messages'
+            = yield
+    %footer
       = debug(params) if Rails.env.development?

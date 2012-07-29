@@ -1,3 +1,6 @@
-%h3= @tag_name
 %table.table.table-striped
+  %thead
+    %tr
+      %th
+        %span.label.btn-primary= @tag_name
   = render :partial => 'tagged_blog', :collection => @blogs

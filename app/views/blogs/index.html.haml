@@ -1,14 +1,18 @@
 %table.table.table-striped
-  %h3 Recent posts
+  %thead
+    %tr
+      %th
+        %i.icon-tags
+        %span.recent-post-tag Recent Posts
   - @blogs.each do |blog|
     %tr
       %td
         = link_to blog.title, blog_url(blog)
       %td
         = blog.created_at.mon
-        \,
+        \/
         = blog.created_at.day
-        |
+        \/
         = blog.created_at.year
         %br
       - if can? :manage, :all
@@ -22,4 +26,4 @@
 
 - if can? :manage, :all
   = link_to 'New Blog', new_blog_path,
-    :class => "btn btn-info"
+    :class => "btn btn-success"
