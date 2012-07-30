@@ -1,3 +1,4 @@
+- @comment_floor = comment_counter + 1 #use to store in model notice
 %tr
   %td
     %div
@@ -7,9 +8,12 @@
           %span.label.label-important
             %b= "F" + (comment_counter+1).to_s
             %i.icon-user
-        %b= comment.nick_name
+        %div.comment-user
+          %a{:name => "#{comment_counter}"}= comment.nick_name
   %td
     = comment.content.html_safe
   - if can? :manage, :all
-    %td= link_to "Delete", blog_comment_path(@blog, comment), :method => :delete,:confirm => "Delete?"
+    %td= link_to "Delete", blog_comment_path(@blog, comment),
+      :method => :delete,:confirm => "Delete?",
+      :class => "btn btn-mini btn-danger"
 

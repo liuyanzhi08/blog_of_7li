@@ -1,0 +1,6 @@
+%tr
+  %td
+    %a{:href => "/blogs/#{notice.comment_blog_id}##{notice.comment_floor}"} xxxx
+  %td
+    = link_to "Delete", notice, :method => :delete,
+      :class => "btn btn-danger btn-mini"

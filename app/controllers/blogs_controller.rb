@@ -19,6 +19,7 @@ class BlogsController < ApplicationController
   def show
     @blog = Blog.find(params[:id])
     @comment = Comment.new
+    @comment_floor
 
     respond_to do |format|
       format.html # show.html.erb
