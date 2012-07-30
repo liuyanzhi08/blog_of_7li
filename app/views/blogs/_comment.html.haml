@@ -5,8 +5,11 @@
       %button.btn.btn-info.disabled
         %div
           %span.label.label-important
-            %b= "F " + (comment_counter+1).to_s
+            %b= "F" + (comment_counter+1).to_s
             %i.icon-user
         %b= comment.nick_name
   %td
     = comment.content.html_safe
+  - if can? :manage, :all
+    %td= link_to "Delete", blog_comment_path(@blog, comment), :method => :delete,:confirm => "Delete?"
+

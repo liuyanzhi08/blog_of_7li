@@ -1,0 +1,20 @@
+= form_for @comment, :url => blog_comments_path(@blog)  do |f|
+  %div.content
+    = f.kindeditor :content, :items => [ 'undo', 'redo','|',
+      'code','image',
+      'emoticons','table', 'link', '|', 'source', 'preview','|',
+      'justifyleft', 'justifycenter', 'justifyright', 'justifyfull', 'insertorderedlist',
+      'insertunorderedlist', 'subscript', 'superscript', '|',
+      'formatblock', 'fontname', 'fontsize', '|',
+      'forecolor', 'hilitecolor', 'bold', 'italic', 'underline', 'strikethrough',
+      'lineheight', '|', 'removeformat', 'plainpaste', 'quickformat', 'fullscreen'],
+      :wellFormatMode => true, :allowImageUpload => false,
+      :height => 100
+  %div.new-comment-nickname
+    = f.text_field :nick_name,
+      :class => "new-comment-nickname-form",
+      :placeholder => " Mr. Who? It's optional"
+    %i.icon-user
+  %div
+    = f.submit "Comment", :class => "btn btn-info"
+

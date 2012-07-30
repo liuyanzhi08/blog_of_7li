@@ -1,11 +1,7 @@
 BlogOf7li::Application.routes.draw do
-  get "comments/create"
-  get "comments/destroy"
-
-  devise_for :users, :except => "sessions#new"
-
+  devise_for :users
   resources :blogs do
-    resources :comments
+    resources :comments, :only => [:create, :destroy]
   end
 
   match "/blogs/tag/:tag" => "blogs#tag", :as => "tagged_blogs", :via => :get
