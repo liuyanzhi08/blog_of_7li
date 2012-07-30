@@ -1,0 +1,12 @@
+%tr
+  %td
+    %div
+    %div
+      %button.btn.btn-info.disabled
+        %div
+          %span.label.label-important
+            %b= "F " + (comment_counter+1).to_s
+            %i.icon-user
+        %b= comment.nick_name
+  %td
+    = comment.content.html_safe

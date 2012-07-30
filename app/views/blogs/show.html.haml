@@ -1,11 +1,24 @@
-%p#notice= notice
-
 - if can? :manage, :all
   = link_to 'Edit', edit_blog_path(@blog),
-    :class => "btn btn-info"
+    :class => "btn btn-primary"
 %h3= @blog.title
 .blog-content
-  = raw(@blog.content)
+  = @blog.content.html_safe
+.comments
+  %table.table.table-striped
+    %tbody
+      = render :partial => "comment", :collection => @blog.comments
+.new-comment
+  = form_for @comment, :url => blog_comments_path(@blog)  do |f|
+    %div
+      = f.text_area :content, :class => "new-comment-content",
+        :placeholder => "Drop a comment ..."
+    %div
+      = f.text_field :nick_name,
+        :class => "new-comment-nickname",
+        :placeholder => " Mr. Who?"
+      %i.icon-user
+    %div
+      = f.submit "Comment", :class => "btn btn-info"
 
-%br
-= link_to 'Back', blogs_path, :class => "btn btn-primary"
+= link_to 'Back', blogs_path, :class => "btn btn-mini"
