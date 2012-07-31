@@ -1,6 +1,8 @@
 - if can? :manage, :all
   = link_to 'Edit', edit_blog_path(@blog),
-    :class => "btn btn-primary"
+    :class => "btn btn-primary btn-mini"
+  = link_to 'Show', blogs_path(@blog),
+    :class => "btn btn-primary btn-mini"
 %h3= @blog.title
 .blog-content
   = @blog.content.html_safe

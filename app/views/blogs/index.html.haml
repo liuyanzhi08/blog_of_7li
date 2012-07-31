@@ -6,7 +6,7 @@
         %span.recent-post-tag Recent Posts
   - @blogs.each do |blog|
     %tr
-      %td
+      %td.blog_title
         = link_to blog.title, blog_url(blog)
       %td
         = blog.created_at.mon
@@ -26,4 +26,4 @@
 
 - if can? :manage, :all
   = link_to 'New Blog', new_blog_path,
-    :class => "btn btn-success"
+    :class => "btn btn-primary"

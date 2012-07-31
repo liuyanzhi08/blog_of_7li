@@ -1,6 +1,12 @@
 %tr
   %td
-    %a{:href => "/blogs/#{notice.comment_blog_id}##{notice.comment_floor}"} xxxx
+    %a{:href => "/blogs/#{notice.comment_blog_id}##{notice.comment_floor}"}
+      = notice.comment.content
+  %td
+    - blog = Blog.find(notice.comment_blog_id) 
+    %i= blog.title
+  %td
+    %i= notice.created_at
   %td
     = link_to "Delete", notice, :method => :delete,
       :class => "btn btn-danger btn-mini"
