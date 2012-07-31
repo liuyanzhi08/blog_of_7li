@@ -1,7 +1,7 @@
 %tr
   %td
     %a{:href => "/blogs/#{notice.comment_blog_id}##{notice.comment_floor}"}
-      = notice.comment.content
+      = notice.comment.content.html_safe
   %td
     - blog = Blog.find(notice.comment_blog_id) 
     %i= blog.title
