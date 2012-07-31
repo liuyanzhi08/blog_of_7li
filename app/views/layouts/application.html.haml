@@ -26,7 +26,7 @@
                   %td
                     = link_to_unless_current tag.name+" "+Blog.tagged_with(tag.name).size.to_s,
                       tagged_blogs_url(tag.name),
-                      :class => "btn btn-mini"
+                      :class => "btn  btn-small"
           .row-fluid
             = render 'layouts/messages'
             = yield
