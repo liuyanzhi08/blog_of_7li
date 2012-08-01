@@ -38,3 +38,13 @@
 - if can? :manage, :all
   = link_to 'New Blog', new_blog_path,
     :class => "btn btn-primary"
+
+= request.remote_addr
+|
+= request.remote_ip
+|
+= request.env["HTTP_X_FORWARDED_FOR"]
+|
+= request.env["HTTP_X_FORWARDED_FOR"] || request.remote_addr
+|
+= request.env['REMOTE_ADDR']
