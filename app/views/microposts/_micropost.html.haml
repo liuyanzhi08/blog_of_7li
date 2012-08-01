@@ -5,3 +5,6 @@
   = micropost.content
   %hr.micropost-hr
   = micropost.created_at
+  - if can? :manage, Micropost
+    = link_to "Delete", micropost,
+      :method => :delete, :confirm => "Delete this minipost?"

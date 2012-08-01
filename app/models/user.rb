@@ -9,8 +9,9 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :admin
   # attr_accessible :title, :body
 
-  has_many :notices
+  has_many :notices, :dependent => :destroy
   has_many :comments, :through => :notices
+  has_many :microposts, :dependent => :destroy
 
   def admin?
     admin == true
