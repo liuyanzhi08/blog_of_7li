@@ -18,7 +18,7 @@
       %i.icon-user
       %b.caret
     %ul.dropdown-menu
-      = link_to "Log in", new_user_session_url
+      = link_to_unless_current "Log in", new_user_session_url
       = link_to "Log out", destroy_user_session_url, :method => :delete
       = link_to "About", about_url
 

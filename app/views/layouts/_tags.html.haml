@@ -1,6 +1,6 @@
 - Blog.tag_counts.each do |tag|
   %tr
     %td
-      = link_to_unless_current tag.name+" "+Blog.tagged_with(tag.name).size.to_s,
+      = link_to_unless_current tag.name+" ("+Blog.tagged_with(tag.name).size.to_s + ")",
         tagged_blogs_url(tag.name),
-          :class => "btn  btn-small"
+        :class => "tag"

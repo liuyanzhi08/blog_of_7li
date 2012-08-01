@@ -24,7 +24,7 @@ class BlogsController < ApplicationController
 
     #record the ip address of a reader
     #if two readers share a same ip then count it one
-    reader_ip = request.env["HTTP_X_FORWARDED_FOR"]
+    reader_ip = request.remote_ip
     if Reader.find_by_ip_and_blog_id(reader_ip, @blog.id).nil?
       reader = Reader.new(:ip => reader_ip)
       @blog.readers << reader

@@ -3,7 +3,7 @@ class NoticesController < ApplicationController
 
   def index
     authorize! :edit, Notice
-    @notices = current_user.notices
+    @notices = current_user.notices.order("created_at DESC")
   end
 
   def destroy
