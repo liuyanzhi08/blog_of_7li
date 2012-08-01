@@ -13,9 +13,13 @@
       %td.blog_title
         = link_to blog.title, blog_url(blog)
       %td
-        %span.label.badge-info
+        %span.label.label-info
           = blog.readers.size
           %i.icon-eye-open
+      %td
+        %span.label.label-important
+          = blog.comments.size
+          %i.icon-comment
       %td
         = blog.created_at.mon
         \/
