@@ -11,6 +11,10 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
     = yield(:head)
+
+    -#the back to top jquery plugin
+    = render "layouts/top_jquery_plugin"
+
   %body
     %header.navbar.navbar-fixed-top
       %nav.navbar-inner
