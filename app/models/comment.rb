@@ -3,6 +3,6 @@ class Comment < ActiveRecord::Base
   validates_presence_of :content,
                         :message => "shouln't be blank, right?"
   belongs_to :blog
-  has_many :notices
+  has_many :notices, :dependent => :destroy
   has_many :users, :through => :notices
 end

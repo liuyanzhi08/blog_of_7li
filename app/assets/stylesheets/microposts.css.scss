@@ -1,0 +1,27 @@
+// Place all the styles related to the microposts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.micropost-content{
+  width:400px;
+  height:40px;
+}
+
+.micropost{
+  padding:10px;
+  margin:2px;
+  float:left;
+  border: 1px solid #FFF;
+  text-align:left;
+  background-color:#FFF;
+}
+
+.micropost-hr{
+  margin:15px 0 5px 0;
+  border:1px solid #89a4cc;
+}
+
+.micropost-serial-number{
+  background-color: #89a4cc;
+  margin: 5px;
+  padding: 2px;
+}

@@ -1,0 +1,8 @@
+%p
+  %b Content:
+  = @micropost.content
+
+- if can? :manage, Micropost
+  = link_to 'Edit', edit_micropost_path(@micropost)
+  \|
+  = link_to 'Back', microposts_path

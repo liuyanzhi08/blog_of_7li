@@ -1,3 +1,7 @@
+- if can? :manage, Micropost
+  - content_for :micropost do
+    = render "microposts/form"
+
 %table.table.table-striped
   %thead
     %tr
@@ -9,12 +13,15 @@
       %td.blog_title
         = link_to blog.title, blog_url(blog)
       %td
+        %span.label.badge-info
+          = blog.readers.size
+          %i.icon-eye-open
+      %td
         = blog.created_at.mon
         \/
         = blog.created_at.day
         \/
         = blog.created_at.year
-        %br
       - if can? :manage, :all
         %td= link_to 'Edit', edit_blog_path(blog),
           :class => "btn btn-mini"

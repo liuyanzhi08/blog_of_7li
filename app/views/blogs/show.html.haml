@@ -1,13 +1,23 @@
 - if can? :manage, :all
   = link_to 'Edit', edit_blog_path(@blog),
     :class => "btn btn-primary btn-mini"
-  = link_to 'Show', blog_path(@blog),
-    :class => "btn btn-primary btn-mini"
-%h3= @blog.title
+  = link_to 'Destroy', blog_path(@blog), :method => :delete,
+    :class => "btn btn-danger btn-mini", :confirm => "Delete this blog ?"
+%h3
+  = @blog.title
+  %span.label.badge-info
+    = @blog.readers.size
+    %i.icon-eye-open
+
 .blog-content
   = @blog.content.html_safe
 .comments
   %table.table.table-striped
+    %thead
+      %tr
+        %h3
+          Total comments
+          %span.total-comments= @blog.comments.size
     %tbody
       = render :partial => "comment", :collection => @blog.comments
 %h3 Comment:

@@ -7,6 +7,7 @@ class BlogsController < ApplicationController
 
   def index
     @blogs = Blog.find(:all, :order => "created_at DESC")
+    @micropost = Micropost.new
 
     respond_to do |format|
       format.html # index.html.erb
@@ -20,6 +21,15 @@ class BlogsController < ApplicationController
     @blog = Blog.find(params[:id])
     @comment = Comment.new
     @comment_floor
+
+    #record the ip address of a reader
+    #if two readers share a same ip then count it one
+    reader_ip = request.env['REMOTE_ADDR']
+    if Reader.find_by_ip_and_blog_id(reader_ip, @blog.id).nil? 
+      reader = Reader.new(:ip => reader_ip)
+      @blog.readers << reader
+      @blog.save
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -89,7 +99,7 @@ class BlogsController < ApplicationController
     @blog.destroy
 
     respond_to do |format|
-      format.html { redirect_to blogs_url }
+      format.html { redirect_to blogs_url, notice: "Blog deleted"}
       format.json { head :no_content }
     end
   end
