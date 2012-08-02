@@ -1,0 +1,25 @@
+// Place all the styles related to the messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.message-wapper{
+  width:500px;
+  margin:0 auto;
+}
+
+.message-message{
+  background-color:#FFF;
+  width:475px;
+  margin: 5px 0;
+  padding:15px;
+  font-size:13px;
+}
+
+.message-message-content{
+}
+
+.message-message-time{
+  background-color:#94acd0;
+  padding:2px;
+}
+
+

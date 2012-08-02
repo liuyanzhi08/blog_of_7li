@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   has_many :notices, :dependent => :destroy
   has_many :comments, :through => :notices
   has_many :microposts, :dependent => :destroy
+  has_many :messages, :dependent => :destroy
 
   def admin?
     admin == true

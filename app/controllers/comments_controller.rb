@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
     if @comment.destroy
       redirect_to blog_url(params[:blog_id]), notice: "Comment deleted"
     else
-      redirect_to blog_url(params[:blog_id]), notice: "Failed to delete the comment"
+      redirect_to blog_url(params[:blog_id]), alert: "Failed to delete the comment"
     end
   end
 end

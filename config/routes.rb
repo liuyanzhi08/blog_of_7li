@@ -10,6 +10,7 @@ BlogOf7li::Application.routes.draw do
 
   resources :notices
   resources :readers, :only => [:create, :destroy]
+  resources :messages, :only => [:index, :create, :destroy]
 
   match "/blogs/tag/:tag" => "blogs#tag", :as => "tagged_blogs", :via => :get
 

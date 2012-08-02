@@ -1,0 +1,13 @@
+.message-message
+  .message-message-content
+    %i.icon-envelope
+    = message.content.html_safe
+  .message-message-time
+    \#
+    = message_counter + 1
+    \|
+    = message.created_at
+    - if can? :manage, Message
+      = link_to "Delete", message, :method => :delete,
+        :confirm => "Delete this message?"
+

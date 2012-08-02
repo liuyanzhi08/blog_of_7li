@@ -8,6 +8,11 @@
     %a{:href => "/archive"}
       %i.icon-list-alt.icon-white
       Archive
+  %li
+    %a{:href => "/messages"}
+      %i.icon-envelope.icon-white
+      %span.application-message-numbers
+        = Message.all.size
 
   - if can? :manage, :all
     %li

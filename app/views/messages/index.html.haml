@@ -1,0 +1,6 @@
+.message-wapper
+  #message-messages
+    %h2
+      Leave me a message:
+    = render :partial => "message", :collection => @messages
+    = render "form"
