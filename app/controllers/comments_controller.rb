@@ -9,8 +9,9 @@ class CommentsController < ApplicationController
     @notice = Notice.new(:comment_blog_id => params[:blog_id], :comment_floor => params[:comment_floor])
     @user.notices << @notice
     @comment.notices << @notice
+    @blog.comments << @comment
 
-    if @blog.comments << @comment
+    if @blog.save
       redirect_to blog_url(@blog), notice: "Thanks for your comment"
     else
       redirect_to blog_url(@blog), alert: "#{@comment.errors.full_messages.first}"

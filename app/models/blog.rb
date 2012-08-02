@@ -3,5 +3,5 @@ class Blog < ActiveRecord::Base
   acts_as_taggable
   validates_presence_of :title, :content
   has_many :comments, :dependent => :destroy
-  has_many :readers
+  has_many :readers, :dependent => :destroy
 end

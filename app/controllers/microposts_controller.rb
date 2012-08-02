@@ -42,13 +42,15 @@ class MicropostsController < ApplicationController
   # POST /microposts.json
   def create
     @micropost = Micropost.new(params[:micropost])
+    current_user.microposts << @micropost
+
 
     respond_to do |format|
-      if @micropost.save
+      if current_user.save
         format.html { redirect_to root_url, notice: 'Micropost sended' }
         format.json { render json: @micropost, status: :created, location: @micropost }
       else
-        format.html { redirect_to root_url, notice: @micropost.errors.full_messages.first }
+        format.html { redirect_to root_url, alert: @micropost.errors.full_messages.first }
         format.json { render json: @micropost.errors, status: :unprocessable_entity }
       end
     end
