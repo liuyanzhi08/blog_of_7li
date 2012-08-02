@@ -1,0 +1,35 @@
+.row-fluid
+  .span1
+    = form_tag("/archive/search", :remote => true)
+    %select.span12{:name => "tag"}
+      %option.archive-opion{:value => "all"}
+        Tags
+      - @tags.each do |tag|
+        %option{:value => "#{tag.name}"}
+          = tag.name
+
+    %select.span12{:name => "month"}
+      %option{:value => "all"}
+        Month
+      - @months.each do |month|
+        %option{:value => "#{month}"}
+          = month
+
+    %select.span12.archive-opion{:name => "year"}
+      %option{:value => "all"}
+        Year
+      - @years.each do |year|
+        %option{:value => "#{year}"}
+          = year
+
+    = submit_tag "Go", :class => "btn btn-primary"
+
+  .span11
+    #archive-blogs-list
+      %table.table
+        %tbody
+          - @blogs.each do |blog|
+            %tr
+            %td= blog.title
+            %td= blog.created_at
+            %td= blog.tag_list.inspect

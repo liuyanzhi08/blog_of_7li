@@ -3,4 +3,4 @@
     %td
       = link_to_unless_current tag.name+" ("+Blog.tagged_with(tag.name).size.to_s + ")",
         tagged_blogs_url(tag.name),
-        :class => "tag"
+        :class => "application-tag"

@@ -1,7 +1,6 @@
 BlogOf7li::Application.routes.draw do
-  resources :microposts
 
-  get "myzone/notice"
+  resources :microposts
 
   devise_for :users
 
@@ -13,9 +12,10 @@ BlogOf7li::Application.routes.draw do
   resources :readers, :only => [:create, :destroy]
 
   match "/blogs/tag/:tag" => "blogs#tag", :as => "tagged_blogs", :via => :get
-  match "/myzone/notice" => "myzone#notice",
-        :as => "myzone_notice", :via => :get
 
   root :to => "blogs#index"
   match "/about" => "home#about", :as => "about", :via => :get
+
+  match "/archive" => "archive#index", :via => :get
+  match "/archive/search" => "archive#search", :via => :post
 end

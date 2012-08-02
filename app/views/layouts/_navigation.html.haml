@@ -4,6 +4,10 @@
     %a{:href => "/microposts"}
       %i.icon-comment.icon-white
       Minipost
+  %li
+    %a{:href => "/archive"}
+      %i.icon-list-alt.icon-white
+      Archive
 
   - if can? :manage, :all
     %li
