@@ -1,2 +1,3 @@
 <% text = "xxxx" %>
-$("#archive-blogs-list").html("<%= escape_javascript render 'search_result', :search_result => @blogs %>")
+$("#archive-blogs-list").html("<%= escape_javascript render 'share/blog_table',
+                              :blog_table => @blogs %>")

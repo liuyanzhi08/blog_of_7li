@@ -1,6 +1,9 @@
 // Place all the styles related to the blogs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.blog-recentpost-head{
+  margin:15px; 
+}
 .blog_title{
     a:visited{
     color:#786272
@@ -15,7 +18,7 @@
 }
 
 .recent-post-tag{
-  font-size:18px;
+  font-size:22px;
 }
 
 .tag-wapper{

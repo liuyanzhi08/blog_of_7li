@@ -1,40 +1,7 @@
 - if can? :manage, Micropost
   - content_for :micropost do
     = render "microposts/form"
-
-%table.table.table-striped
-  %thead
-    %tr
-      %th
-        %i.icon-tags
-        %span.recent-post-tag Recent Posts
-  - @blogs.each do |blog|
-    %tr
-      %td.blog_title
-        = link_to blog.title, blog_url(blog)
-      %td
-        %span.label.label-info
-          = blog.readers.size
-          %i.icon-eye-open
-      %td
-        %span.label.label-important
-          = blog.comments.size
-          %i.icon-comment
-      %td
-        = blog.created_at.mon
-        \/
-        = blog.created_at.day
-        \/
-        = blog.created_at.year
-      - if can? :manage, :all
-        %td= link_to 'Edit', edit_blog_path(blog),
-          :class => "btn btn-mini"
-        %td= link_to 'Destroy', blog, :method => :delete,
-          :confirm => "Remove?",
-          :class => "btn btn-mini btn-danger"
-
-%br
-
-- if can? :manage, :all
-  = link_to 'New Blog', new_blog_path,
-    :class => "btn btn-primary"
+.blog-recentpost-head
+  %i.icon-tags
+  %span.recent-post-tag Recent Posts
+= render "share/blog_table", :blog_table => @blogs

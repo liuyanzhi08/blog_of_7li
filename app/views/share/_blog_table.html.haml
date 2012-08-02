@@ -1,0 +1,26 @@
+%table.table
+  - blog_table.each do |blog|
+    %tr
+      %td.blog_title
+        = link_to blog.title, blog_url(blog)
+      %td
+        %span.label.label-info
+          = blog.readers.size
+          %i.icon-eye-open
+      %td
+        %span.label.label-important
+          = blog.comments.size
+          %i.icon-comment
+      %td
+        = blog.created_at.mon
+        \/
+        = blog.created_at.day
+        \/
+        = blog.created_at.year
+        - if can? :manage, :all
+          %td= link_to 'Edit', edit_blog_path(blog),
+            :class => "btn btn-mini"
+          %td= link_to 'Destroy', blog, :method => :delete,
+            :confirm => "Remove?",
+            :class => "btn btn-mini btn-danger"
+

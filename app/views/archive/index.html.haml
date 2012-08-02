@@ -26,10 +26,4 @@
 
   .span11
     #archive-blogs-list
-      %table.table
-        %tbody
-          - @blogs.each do |blog|
-            %tr
-            %td= blog.title
-            %td= blog.created_at
-            %td= blog.tag_list.inspect
+      = render "share/blog_table", :blog_table => @blogs
