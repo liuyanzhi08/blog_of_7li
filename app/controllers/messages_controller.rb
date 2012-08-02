@@ -20,7 +20,7 @@ class MessagesController < ApplicationController
   end
 
   def destroy
-    @message = Comment.find(params[:id])
+    @message = Message.find(params[:id])
     if @message.destroy
       redirect_to messages_url, notice: "Comment deleted"
     else
