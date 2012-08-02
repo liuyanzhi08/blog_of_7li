@@ -1,12 +1,12 @@
 class MessagesController < ApplicationController
   load_and_authorize_resource #cancan use to authorize
-  skip_authorize_resource :only => :create
   def index
     @message = Message.new
     @messages = Message.all
   end
 
   def create
+    authorize! :create, Message
     @message = Message.new(params[:message])
     @user = User.find_by_email_and_admin("77svli@gmail.com",true)
     @user.messages << @message
