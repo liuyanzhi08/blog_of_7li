@@ -9,12 +9,13 @@ class CommentsController < ApplicationController
 
     @user = User.find_by_email_and_admin("77svli@gmail.com",true)
     @notice = Notice.new(:comment_blog_id => params[:blog_id], :comment_floor => params[:comment_floor])
-    @user.notices << @notice
-    @user.save
-    @comment.notices << @notice
 
 
     if @blog.save
+      @user.notices << @notice
+      @user.save
+      @comment.notices << @notice
+      @comment.save
       redirect_to blog_url(@blog), notice: "Thanks for your comment"
     else
       redirect_to blog_url(@blog), alert: "#{@comment.errors.full_messages.first}"
