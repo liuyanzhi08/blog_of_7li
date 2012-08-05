@@ -1,13 +1,15 @@
 - if can? :manage, :all
   = link_to 'Edit', edit_blog_path(@blog),
-    :class => "btn btn-primary btn-mini"
+    :class => "btn btn-mini"
   = link_to 'Destroy', blog_path(@blog), :method => :delete,
-    :class => "btn btn-danger btn-mini", :confirm => "Delete this blog ?"
+    :class => "btn btn-mini", :confirm => "Delete this blog ?"
 %h3
   = @blog.title
-  %span.label.badge-info
+  %span.label
     = @blog.readers.size
     %i.icon-eye-open
+    = @blog.comments.size
+    %i.icon-comment
 
 .blog-content
   = @blog.content.html_safe

@@ -13,7 +13,7 @@
 */
 
 .content {
-  background-color: #eee;
+  background-color: #fff;
   padding: 20px;
   margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
   -webkit-border-radius: 0 0 6px 6px;
@@ -25,12 +25,18 @@
 }
 
 .application-tag{
-  background-color:#FFF;
   padding:3px;
   margin: 1px;
+  a:hover{
+    text-decoration:none;
+  }
 }
 
 .application-message-numbers{
-  color:#7694c3;
-  font-size:14px;
 }
+
+.application-nav-color {
+    background-color: #ddd;
+}
+
+

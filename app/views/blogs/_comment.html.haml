@@ -1,19 +1,15 @@
 - @comment_floor = comment_counter + 1 #use to store in model notice
 %tr
   %td
-    %div
-    %div
-      %button.btn.btn-info.disabled
-        %div
-          %span.label.label-important
-            %b= "F" + (comment_counter+1).to_s
-            %i.icon-user
-        %div.comment-user
-          %a{:name => "#{comment_counter}"}= comment.nick_name
-  %td
     = comment.content.html_safe
+  %td.blog-comment-slash
+    .blog-comment-floor-wapper
+      .blog-comment-user
+        %i.icon-user
+        %a{:name => "#{comment_counter}"}= comment.nick_name
+      .blog-comment-floor
+        %b= "F" + (comment_counter+1).to_s
   - if can? :manage, :all
     %td= link_to "Delete", blog_comment_path(@blog, comment),
-      :method => :delete,:confirm => "Delete?",
-      :class => "btn btn-mini btn-danger"
+      :method => :delete,:confirm => "Delete?"
 

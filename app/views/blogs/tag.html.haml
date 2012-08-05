@@ -1,6 +1,4 @@
-%table.table.table-striped
-  %thead
-    %tr
-      %th
-        %span.label.btn-primary= @tag_name
-  = render :partial => 'tagged_blog', :collection => @blogs
+.blog-tag-head
+  %span.recent-post-tag
+    = @tag_name.humanize
+=  render 'share/blog_table', :blog_table => @blogs

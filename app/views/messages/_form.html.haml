@@ -1,7 +1,7 @@
 = form_for @message do |f|
   -if @message.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@message.errors.count, "error")} Ohoh, something is left behind:"
+      %h2= "Ohoh, something is left behind:"
       %ul
         - @message.errors.full_messages.each do |msg|
           %li= msg
@@ -14,5 +14,6 @@
       :allowImageUpload => false
 
     .actions
-      = f.submit 'Leave a message', :class => "btn btn-primary"
+      %br
+      = f.submit 'Leave a message', :class => "btn btn-large"
 

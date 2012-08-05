@@ -1,7 +1,7 @@
 // Place all the styles related to the blogs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.blog-recentpost-head{
+.blog-recentpost-head, .blog-tag-head{
   margin:15px; 
 }
 .blog_title{
@@ -12,9 +12,9 @@
 
 .blog-content{
   padding:20px;
-  background-color:#FFF;
   margin-top: 12px;
   margin-bottom: 12px;
+  border-top:1px dotted #ddd;
 }
 
 .recent-post-tag{
@@ -46,17 +46,39 @@
   width:70%;
 }
 
-.comment-user{
-  a{
-    color:white;
-  }
+.total-comments{
+  color:#ce8685;
+}
 
-  a:hover{
-    color:white;
+.blog-table{
+  width:100%;
+  tr{
+    td{
+      padding-left:7px;
+    }
+    height:34px;
+    border-top:1px dotted #ddd;
+  }
+}
+
+.blog-comment-floor-wapper{
+  white-space:nowrap;
+  padding:5px;
+  a, a:hover{
+    color:#000;
     text-decoration:none;
   }
 }
 
-.total-comments{
-  color:#ce8685;
+.blog-comment-floor{
+  margin-left:5px;
+  float:right;
+}
+
+.blog-comment-user{
+  float:left;
+}
+
+.blog-comment-slash{
+  border-left:1px solid #ddd;
 }
