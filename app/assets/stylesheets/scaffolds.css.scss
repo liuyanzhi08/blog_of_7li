@@ -1,3 +1,12 @@
+/*$navbarHeight:11px;*/
+$navbarLinkColor:#6d6d6d;
+$navbarLinkColorHover:#000;
+@import "bootstrap";
+
+.navbar-mycustume{
+  background: url("http://img.my.csdn.net/uploads/201208/05/1344171892_6037.png");
+  background-repeat:repeat-x;
+}
 a{
    color:#075f87;
 }
@@ -28,12 +37,12 @@ div {
 
 .field_with_errors {
   padding: 2px;
-  background-color: red;
+  background-color: #ddd;
   display: table; }
 
 #error_explanation {
   width: 450px;
-  border: 2px solid red;
+  border: 2px solid #ddd;
   padding: 7px;
   padding-bottom: 0;
   margin-bottom: 20px;
@@ -45,8 +54,8 @@ div {
     font-size: 12px;
     margin: -7px;
     margin-bottom: 0px;
-    background-color: #c00;
-    color: #fff; }
+    background-color: #ddd;
+    color: #c03e31; }
   ul li {
     font-size: 12px;
     list-style: square; } }

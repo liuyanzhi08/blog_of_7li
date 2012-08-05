@@ -1,23 +1,24 @@
-= link_to "7LI",root_path , :class => 'brand'
 %ul.nav.nav-pills
   %li
+    = link_to "7LI",root_path , :class => 'brand'
+  %li
     %a{:href => "/microposts"}
-      %i.icon-comment.icon-white
+      %i.icon-comment
       Minipost
   %li
     %a{:href => "/archive"}
-      %i.icon-list-alt.icon-white
+      %i.icon-list-alt
       Archive
   %li
     %a{:href => "/messages"}
-      %i.icon-envelope.icon-white
+      %i.icon-envelope
       %span.application-message-numbers
         = Message.all.size
 
   - if can? :manage, :all
     %li
       %a{:href => "/blogs/new"}
-        %i.icon-pencil.icon-white
+        %i.icon-pencil
     %li
       %a{:href => "/notices"}
         = Notice.all.size
